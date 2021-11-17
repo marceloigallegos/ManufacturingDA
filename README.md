@@ -20,8 +20,6 @@ Normalmente, la tarea más obvia (y relevante) corresponde en determinar qué eq
 Si el equipo se encuentra asociado con sistemas de monitoreo, control y/o sensores, entonces el uso de datos expande/robustece cada procedimiento.
 
 ## Data Analysis para apoyar la gestión de mantenimiento: A basic Framework
-Si tenemos la posibilidad de establecer un equipo de referencia o modelo (Golden Standard Machine), entonces podemos ejecutar pruebas estadísticas basadas en Data Analysis para realizar el proceso de identificación del equipo con fallas. El interés de determinar qué elemento presenta anomalías, previo a cualquier intervención del sistema, se evalúa principalmente desde el aspecto financiero. Ejecutivos y Directivos de la empresa pueden argumentar que una intervención tan invasiva como detener la cadena productiva por completo para buscar un equipo con alteraciones no se justifica en costos si es que la calidad de los productos fabricados no ha disminuido de forma significativa.
-
 El Framework que se presenta considera que existe dentro del sistema productivo un equipo de referencia o modelo (Golden Standard Machine). Además, consideraremos que en el conjunto de equipos a analizar (todos ellos idénticos), se han realizado instalación de sistemas de control y sensores para medir parámetros/variables de interés y generar datos, y que dichos datos son confiables. Esto es, a partir de los datos generados, pueden aplicarse métodos y pruebas estadísticas.
 
 Me quiero detener brevemente en la consideración del sensoramiento o instalación de dispositivos de monitoreo. Sugiero (sin tecnicismos o formalidades) que se deben considerar ciertos aspectos antes de incursionar en estas aplicaciones:
@@ -30,7 +28,30 @@ Me quiero detener brevemente en la consideración del sensoramiento o instalaci�
 - Si no sirve, no se mide: Millones de datos o registros no significan nada si sólo se convierten en consumo de espacio en el disco duro. Sólo enfocarse en medir lo que realmente interesa ahora, el resto puede quedar para el futuro.
 - Si no es confiable, no sirve: Si no se puede contar con un grado de confianza significativo en el sistema que levanta la información, entonces cualquier análisis generará conclusiones tan débiles como los datos mismos.
 
-Ahora, con estas consideraciones en mente, pasemos al modelo. 
+Consideremos un sistema productivo con cinco Equipos idénticos, además de un Equipo Modelo (golden machine). A su vez, todos ellos tienen instalados 5 sensores que registran 5 parámetros de diferente naturaleza. Esto es, sólo se pueden establecer comparaciones coherentes entre los Equipos cuando son comparados los datos del mismo sensor.
+
+100 datos por máquina, con 5 sensores.
+
+Equipo-Modelo:
+```
+equipo_modelo = pd.DataFrame(np.random.normal(size=(100,5)))
+```
+
+Equipos del Sistema:
+```
+machines = {'machine'+str(i):[] for i in range(1,11)}
+for i in range(1,11):
+    loc = np.random.uniform(0,2)
+    scale = np.random.uniform(0,2)
+    df1 = machine_golden+pd.DataFrame(np.random.normal(loc=loc,scale=scale,size=(200,10)))
+    machines['machine'+str(i)] = df1
+```
+
+A modo de ejemplo, nótese la correlación entre los datos asociados al Sensor-3 del Equipo-Modelo y del Equipo-2 (Figura X). De forma opuesta, observe la correlación entre los datos asociados al Sensor-2 del Equipo-Modelo y al Sensor-1 del Equipo-3 (Figura X).
+
+-Figuras X - X
+
+
 
 
 ### Dependencies
