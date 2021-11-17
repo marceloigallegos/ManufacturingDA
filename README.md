@@ -20,6 +20,12 @@ Normalmente, la tarea más obvia (y relevante) corresponde en determinar qué eq
 Si el equipo se encuentra asociado con sistemas de monitoreo, control y/o sensores, entonces el uso de datos expande/robustece cada procedimiento.
 
 ## Data Analysis para apoyar la gestión de mantenimiento: A basic Framework
+
+### Dependencies
+- Numpy
+- Pandas
+- Matplotlib
+
 El Framework que se presenta considera que existe dentro del sistema productivo un equipo de referencia o modelo (Golden Standard Machine). Además, consideraremos que en el conjunto de equipos a analizar (todos ellos idénticos), se han realizado instalación de sistemas de control y sensores para medir parámetros/variables de interés y generar datos, y que dichos datos son confiables. Esto es, a partir de los datos generados, pueden aplicarse métodos y pruebas estadísticas.
 
 Me quiero detener brevemente en la consideración del sensoramiento o instalación de dispositivos de monitoreo. Sugiero (sin tecnicismos o formalidades) que se deben considerar ciertos aspectos antes de incursionar en estas aplicaciones:
@@ -39,12 +45,12 @@ equipo_modelo = pd.DataFrame(np.random.normal(size=(100,5)))
 
 Equipos del Sistema:
 ```
-machines = {'machine'+str(i):[] for i in range(1,11)}
-for i in range(1,11):
+equipos = {'equipo_'+str(i):[] for i in range(1,6)}
+for i in range(1,6):
     loc = np.random.uniform(0,2)
     scale = np.random.uniform(0,2)
-    df1 = machine_golden+pd.DataFrame(np.random.normal(loc=loc,scale=scale,size=(200,10)))
-    machines['machine'+str(i)] = df1
+    df = equipo_modelo+pd.DataFrame(np.random.normal(loc=loc,scale=scale,size=(100,5)))
+    equipos['equipo_'+str(i)] = df
 ```
 
 A modo de ejemplo, nótese la correlación entre los datos asociados al Sensor-3 del Equipo-Modelo y del Equipo-2 (Figura X). De forma opuesta, observe la correlación entre los datos asociados al Sensor-2 del Equipo-Modelo y al Sensor-1 del Equipo-3 (Figura X).
@@ -54,7 +60,4 @@ A modo de ejemplo, nótese la correlación entre los datos asociados al Sensor-3
 
 
 
-### Dependencies
-- Numpy
-- Pandas
-- Matplotlib
+
