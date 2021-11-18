@@ -73,17 +73,11 @@ Correlacion de equipo_10 respecto a equipoModelo: 99.94
 
 From a quick inspection, we can see that Machines 2 and 3 were the least correlated with the Model Machine; and Machines 4, 9, and 10 are the most correlated. Logically, coherent comparisons can only be established between the Machines when data from the same sensor are compared. As an example, note the correlation between the data associated with Sensor-1 of Model-Machine and those of Sensor-1 of Machine-4 (**Figure 2**). Conversely, observe the graph for the correlation between the data associated with Sensor-1 of Model-Machine and Sensor-2 of Machine-4 (**Figure 3**).
 
-<p align="center">
 ![alt text](https://github.com/marceloigallegos/ManufacturingDA/blob/main/mdImages/Figura2.png)
-    Figure 2
-</p>
+Figure 2
 
-<p align="center">
 ![alt text](https://github.com/marceloigallegos/ManufacturingDA/blob/main/mdImages/Figura3.png)
-    Figure 2
-</p>
-
-
+Figure 3
 
 From here we can start creating a more entertaining analysis. Let's look at Machine 1, which seems to have a moderate/weak correlation with the Model-Machine. We can start by generating a small dashboard to visually study the correlation in some specific Sensors.
 
@@ -99,7 +93,9 @@ What about the Machine with the lowest correlation level (Machine 5)?
 
 At the end of our process, we can now select those machines with significant deviations (Machines 2, 3 and 5) and remove them from the operating system to carry out adjustments/repairs. If we review some basic examples on the Pearson coefficient, we can even incline them by setting a reference limit for the control of the equipment (say at 0.8).
 
-![alt text](https://github.com/marceloigallegos/ManufacturingDA/blob/main/mdImages/Figura7.png)
+<p align="center">
+  <img width="500" height="500" src="https://github.com/marceloigallegos/ManufacturingDA/blob/main/mdImages/Figura7.png">
+</p>
 
 This process to control and locate machines with defects increases its potential, obviously, with an increase in the number of samples and sensors on the set of equipment in the system. Furthermore, an increase in the complexity of the system (i.e. more machines) does not affect the procedure and its results. In a planning horizon of several time periods, we can see radical changes in which machines and in which number have anomalies, but this simple procedure is able to identify those machines using the same analytical approach.
 
