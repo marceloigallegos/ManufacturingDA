@@ -30,9 +30,9 @@ The Framework that is presented considers that a reference or model machine (Gol
 
 I want to pause briefly on the consideration of sensing or installing monitoring sensors/devices. I suggest (without technicalities or formalities) that certain aspects should be considered before venturing into these applications:
 
-- If it is not measured, it does not exist: This is the premise that gives rise to considering installing a monitoring system, sensors or any device that collects data. The idea is precisely to measure something of interest to be able to consider it within any analysis.
-- If it does not work, it is not measured: Millions of data or records do not mean anything if they only become consumption of space on the hard disk. Just focus on measuring what really matters now, the rest can be left for the future.
-- If it is not reliable, it does not work: If you cannot have a significant degree of confidence in the system that collects the information, then any analysis will generate conclusions as weak as the data itself.
+- **If it is not measured, it does not exist**: This is the premise that gives rise to considering installing a monitoring system, sensors or any device that collects data. The idea is precisely to measure something of interest to be able to consider it within any analysis.
+- **If it does not work, it is not measured**: Millions of data or records do not mean anything if they only become consumption of space on the hard disk. Just focus on measuring what really matters now, the rest can be left for the future.
+- **If it is not reliable, it does not work**: If you cannot have a significant degree of confidence in the system that collects the information, then any analysis will generate conclusions as weak as the data itself.
 
 Let us consider a production system with ten identical machines, in addition to a Model Machine. In turn, all of them have installed 10 sensors that record ten parameters of different nature. If we consider a time horizon where 100 data has been recorded per machine, we have:
 
@@ -71,7 +71,7 @@ Correlacion de equipo_9 respecto a equipoModelo: 98.66
 Correlacion de equipo_10 respecto a equipoModelo: 99.94
 ```
 
-From a quick inspection, we can see that Machines 2 and 3 were the least correlated with the Model Machine; and Machines 4, 9, and 10 are the most correlated. Logically, coherent comparisons can only be established between the Machines when data from the same sensor are compared. As an example, note the correlation between the data associated with Sensor-1 of Model-Machine and those of Sensor-1 of Machine-4 (Figure 2). Conversely, observe the graph for the correlation between the data associated with Sensor-1 of Model-Machine and Sensor-2 of Machine-4 (Figure 3).
+From a quick inspection, we can see that Machines 2 and 3 were the least correlated with the Model Machine; and Machines 4, 9, and 10 are the most correlated. Logically, coherent comparisons can only be established between the Machines when data from the same sensor are compared. As an example, note the correlation between the data associated with Sensor-1 of Model-Machine and those of Sensor-1 of Machine-4 (**Figure 2**). Conversely, observe the graph for the correlation between the data associated with Sensor-1 of Model-Machine and Sensor-2 of Machine-4 (**Figure 3**).
 
 FIGURA 2
 
