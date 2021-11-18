@@ -94,7 +94,7 @@ What about the Machine with the lowest correlation level (Machine 5)?
 At the end of our process, we can now select those machines with significant deviations (Machines 2, 3 and 5) and remove them from the operating system to carry out adjustments/repairs. If we review some basic examples on the Pearson coefficient, we can even incline them by setting a reference limit for the control of the equipment (say at 0.8).
 
 <p align="center">
-  <img width="500" height="500" src="https://github.com/marceloigallegos/ManufacturingDA/blob/main/mdImages/Figura7.png">
+  <img width="700" height="300" src="https://github.com/marceloigallegos/ManufacturingDA/blob/main/mdImages/Figura7.png">
 </p>
 
 This process to control and locate machines with defects increases its potential, obviously, with an increase in the number of samples and sensors on the set of equipment in the system. Furthermore, an increase in the complexity of the system (i.e. more machines) does not affect the procedure and its results. In a planning horizon of several time periods, we can see radical changes in which machines and in which number have anomalies, but this simple procedure is able to identify those machines using the same analytical approach.
