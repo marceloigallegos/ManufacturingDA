@@ -73,16 +73,9 @@ Correlacion de equipo_10 respecto a equipoModelo: 99.94
 
 From a quick inspection, we can see that Machines 2 and 3 were the least correlated with the Model Machine; and Machines 4, 9, and 10 are the most correlated. Logically, coherent comparisons can only be established between the Machines when data from the same sensor are compared. As an example, note the correlation between the data associated with Sensor-1 of Model-Machine and those of Sensor-1 of Machine-4 (**Figure 2**). Conversely, observe the graph for the correlation between the data associated with Sensor-1 of Model-Machine and Sensor-2 of Machine-4 (**Figure 3**).
 
-<p align="center">
-  <img width="300" height="200" src="https://github.com/marceloigallegos/ManufacturingDA/blob/main/mdImages/Figura2.png">
-  **Figure 2**
-</p>
-Figure 2
+![alt text](https://github.com/marceloigallegos/ManufacturingDA/blob/main/mdImages/Figura2.png)
 
-<p align="center">
-  <img width="300" height="200" src="https://github.com/marceloigallegos/ManufacturingDA/blob/main/mdImages/Figura3.png">
-  Figure 3
-</p>
+![alt text](https://github.com/marceloigallegos/ManufacturingDA/blob/main/mdImages/Figura3.png)
 
 From here we can start creating a more entertaining analysis. Let's look at Machine 1, which seems to have a moderate/weak correlation with the Model-Machine. We can start by generating a small dashboard to visually study the correlation in some specific Sensors.
 
