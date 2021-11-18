@@ -1,65 +1,63 @@
-# ManufacturingDA
-Manufacturing Data Analytics: A basic statistics-based tool
+# Manufacturing Data Analysis to monitor a productive system
+In this small project a Framework based on Data Analytics is presented to support the control/repair process of machines in a productive system.
 
-## Detección de anomalías en sistemas de producción
-A pesar de contar con equipos con una creciente calidad, estabilidad y precisión, ningún sistema mecánico/productivo es inmune a variaciones o alteraciones dentro de su rutina de operación. Hoy más que nunca, conceptos como Industria 4.0, Automatización y Digitalización refuerzan la necesidad por no sólo operar sistemas cada vez más máquino-dependientes, sino la consideración del monitoreo y control de los diferentes equipos/máquinas desde la concepción del sistema productivo.
+## Detection of anomalies in production systems
+Despite having equipment with increasing quality, stability and precision, no equipment/machine is immune to variations or alterations within its operating routine. Today more than ever, concepts such as Industry 4.0, Automation and Digitization reinforce the need not only to operate increasingly machine-dependent systems, but also to consider the monitoring and control of the different equipment / machines from the conception of the production system.
 
 FIGURA 1
 
-Detectar las variaciones en un equipo, según los parámetros controlados por los sensores, guarda su importancia principalmente en:
-- Identificar en específico el equipo con variaciones, a fin de aplicar mantenimiento o remover del proceso productivo.
-- Identificar y relacionar la calidad de un determinado lote de productos con el equipo con variaciones.
-- Investigar causas de raíz que generen alteraciones en el ciclo de confiabilidad del equipo.
+Detecting variations in a piece of equipment, according to the parameters controlled by the sensors, keeps its importance mainly in:
+- Identify specifically the equipment with variations, in order to apply maintenance or remove it from the production process.
+- Identify and relate the quality of a certain batch of products with the equipment with variations.
+- Investigate root causes that generate alterations in the reliability cycle of the equipment.
 
-## Localizar defectos a corregir dentro de un sistema productivo
-Normalmente, la tarea más obvia (y relevante) corresponde en determinar qué equipo (dentro de un conjunto de equipos idénticos) sufre de variaciones o desviaciones operativas. Detectar variaciones para un equipo en particular puede seguir diferentes procedimientos estándar:
-- Conteo de anomalías del equipo en funcionamiento. Si la frecuencia/densidad de las anomalías excede un límite arbitrario, entonces se levanta el requerimiento de mantención/reparación al equipo.
-- Ajustar una distribución estadística (normal, gaussiana, etc.), de datos generados en un determinado espacio de tiempo. Luego, ya en operación, si hay cambios en la distribución, se levanta un requerimiento.
-- Aplicar pruebas estadísticas cada turno/día/semana y analizar si hay cambio significativo.
+## Locate defects to correct within a production system
+Typically, the most obvious (and relevant) task is to determine which machine (within a set of identical machine) suffers from operational variations or deviations. Detecting variations for a particular machine can follow different standard procedures:
+- Count of anomalies of the machines in operation. If the frequency/density of the anomalies exceeds an arbitrary limit, then the maintenance/repair requirement to the machine is lifted.
+- Fit a statistical distribution (normal, Gaussian, etc.) to data generated in a certain period of time. Then, already in operation, if there are changes in the distribution, a requirement is raised.
+- Apply statistical tests every shift/day/week and analyze if there is significant change.
 
-Si el equipo se encuentra asociado con sistemas de monitoreo, control y/o sensores, entonces el uso de datos expande/robustece cada procedimiento.
+If the machine is associated with monitoring, control and/or sensor systems, then the use of data expands/strengthens each procedure.
 
-## Data Analysis para apoyar la gestión de mantenimiento: A basic Framework
+## Data Analysis to support maintenance management: A basic Framework
 
 ### Dependencies
 - Numpy
 - Pandas
 - Matplotlib
 
-El Framework que se presenta considera que existe dentro del sistema productivo un equipo de referencia o modelo (Golden Standard Machine). Además, consideraremos que en el conjunto de equipos a analizar (todos ellos idénticos), se han realizado instalación de sistemas de control y sensores para medir parámetros/variables de interés y generar datos, y que dichos datos son confiables. Esto es, a partir de los datos generados, pueden aplicarse métodos y pruebas estadísticas.
+The Framework that is presented considers that a reference or model machine (Golden Standard Machine) exists within the production system. In addition, we will consider that in the set of machines to be analyzed (all of them identical), control systems and sensors have been installed to measure parameters/variables of interest and generate data, and that data is reliable. That is, from the data generated, statistical methods and tests can be applied with an aceptable level of confidence.
 
-Me quiero detener brevemente en la consideración del sensoramiento o instalación de dispositivos de monitoreo. Sugiero (sin tecnicismos o formalidades) que se deben considerar ciertos aspectos antes de incursionar en estas aplicaciones:
+I want to pause briefly on the consideration of sensing or installing monitoring sensors/devices. I suggest (without technicalities or formalities) that certain aspects should be considered before venturing into these applications:
 
-- Si no se mide, no existe: Esta es la premisa que da lugar a considerar instalar un sistema de monitoreo, sensores o cualquier dispositivo que recolecte datos. La idea es precisamente medir algo de interés para poder considerarlo dentro de cualquier análisis.
-- Si no sirve, no se mide: Millones de datos o registros no significan nada si sólo se convierten en consumo de espacio en el disco duro. Sólo enfocarse en medir lo que realmente interesa ahora, el resto puede quedar para el futuro.
-- Si no es confiable, no sirve: Si no se puede contar con un grado de confianza significativo en el sistema que levanta la información, entonces cualquier análisis generará conclusiones tan débiles como los datos mismos.
+- If it is not measured, it does not exist: This is the premise that gives rise to considering installing a monitoring system, sensors or any device that collects data. The idea is precisely to measure something of interest to be able to consider it within any analysis.
+- If it does not work, it is not measured: Millions of data or records do not mean anything if they only become consumption of space on the hard disk. Just focus on measuring what really matters now, the rest can be left for the future.
+- If it is not reliable, it does not work: If you cannot have a significant degree of confidence in the system that collects the information, then any analysis will generate conclusions as weak as the data itself.
 
-Consideremos un sistema productivo con cinco Equipos idénticos, además de un Equipo Modelo (golden machine). A su vez, todos ellos tienen instalados 5 sensores que registran 5 parámetros de diferente naturaleza.
+Let us consider a production system with ten identical machines, in addition to a Model Machine. In turn, all of them have installed 10 sensors that record ten parameters of different nature. If we consider a time horizon where 100 data has been recorded per machine, we have:
 
-100 datos por máquina, con 10 sensores.
-
-Equipo-Modelo:
+Model Machine
 ```
 equipo_modelo = pd.DataFrame(np.random.normal(size=(100,10)))
 ```
 
-Equipos del Sistema:
+System Machines:
 ```
-equipos = {'equipo_'+str(i):[] for i in range(1,6)}
-for i in range(1,6):
+equipos = {'equipo_'+str(i):[] for i in range(1,11)}
+for i in range(1,11):
     loc = np.random.uniform(0,1)
     scale = np.random.uniform(0,1)
     df = equipo_modelo+pd.DataFrame(np.random.normal(loc=loc,scale=scale,size=(100,10)))
     equipos['equipo_'+str(i)] = df
 ```
 
-Usando Pandas, podemos implementar un método that calculates the Pearson Correlation score between each Equipo y el Equipo Modelo:
+Using Pandas, we can implement a method that calculates the Pearson Correlation score between each Machine and the Model Machine:
 ```
 for equipo in equipos:
     print(f"Nivel Correlacion de {equipo} respecto a equipoModelo:", round(equipo_modelo.corrwith(equipos[equipo],axis=1).sum(),2))
 ```
 
-Como resultado, obtendremos algo como esto:
+As a result, we will get something like this:
 ```
 Correlacion de equipo_1 respecto a equipoModelo: 88.18
 Correlacion de equipo_2 respecto a equipoModelo: 72.3
@@ -73,34 +71,34 @@ Correlacion de equipo_9 respecto a equipoModelo: 98.66
 Correlacion de equipo_10 respecto a equipoModelo: 99.94
 ```
 
-De una inspección rápida, podemos observar que los Equipos 2 y 3 fueron los menos correlated with the golden machine, y los equipos 4, 9 y 10 are the most correlated. Lógicamente, sólo se pueden establecer comparaciones coherentes entre los Equipos cuando son comparados los datos del mismo sensor. A modo de ejemplo, nótese la correlación entre los datos asociados al Sensor-1 del Equipo-Modelo y los del Sensor-1 del Equipo-4 (Figura 2). De forma opuesta, observe la gráfica para la correlación entre los datos asociados al Sensor-1 del Equipo-Modelo y al Sensor-2 del Equipo-4 (Figura 3).
+From a quick inspection, we can see that Machines 2 and 3 were the least correlated with the Model Machine; and Machines 4, 9, and 10 are the most correlated. Logically, coherent comparisons can only be established between the Machines when data from the same sensor are compared. As an example, note the correlation between the data associated with Sensor-1 of Model-Machine and those of Sensor-1 of Machine-4 (Figure 2). Conversely, observe the graph for the correlation between the data associated with Sensor-1 of Model-Machine and Sensor-2 of Machine-4 (Figure 3).
 
 FIGURA 2
 
 FIGURA 3
 
-A partir de aquí podemos empezar a crear un análisis más entretenido. Veamos el Equipo 1, que pareciera guardar una correlación moderada/débil con el Equipo Modelo. Podemos empezar generando un pequeño dashboard para estudiar visualmente la correlación en algunos Sensores en específico.
+From here we can start creating a more entertaining analysis. Let's look at Machine 1, which seems to have a moderate/weak correlation with the Model-Machine. We can start by generating a small dashboard to visually study the correlation in some specific Sensors.
 
 FIGURA
 
-El Equipo 10 tiene el mayor nivel de correlación con el Equipo Modelo ¿Es esto apreciable en detalle para cada Sensor?
+Machine 10 has the highest level of correlation with Model-Machine. Is this appreciable in detail for each Sensor?
 
 FIGURA
 
-¿Qué pasa para el Equipo con el menor nivel de correlación (Equipo 5)?
+What about the Machine with the lowest correlation level (Machine 5)?
 
 FIGURA
 
-Al finalizar nuestro proceso, podemos ahora seleccionar aquellos equipos con desviaciones significativas (Equipos 2, 3 y 5) y removerlos del sistema en operación para ejecutar ajustes/reparaciones. Si revisamos un poco de ejemplos básicos sobre el coeficiente de Pearson, podemos incluso inclinarlos por fijar un límite de referencia para el control de los equipos (digamos al 0.8).
+At the end of our process, we can now select those machines with significant deviations (Machines 2, 3 and 5) and remove them from the operating system to carry out adjustments/repairs. If we review some basic examples on the Pearson coefficient, we can even incline them by setting a reference limit for the control of the equipment (say at 0.8).
 
 FIGURA
 
-Este proceso controlar y localizar equipos con defectos incrementa su potencial, evidentemente, con un aumento en el número de muestras y sensores sobre el conjunto de equipos del sistema. Más aún, un aumento en la complejidad del sistema (i.e. más equipos) no afecta el procedimiento y sus resultados. En un horizonte de planificación de varios periodos de tiempo, podemos ver cambios radicales en qué equipos y en qué número presentan anomalías, pero este sencillo procedimiento es capaz de identificar esos equipos utilizando el mismo enfoque analítico.
+This process to control and locate machines with defects increases its potential, obviously, with an increase in the number of samples and sensors on the set of equipment in the system. Furthermore, an increase in the complexity of the system (i.e. more machines) does not affect the procedure and its results. In a planning horizon of several time periods, we can see radical changes in which machines and in which number have anomalies, but this simple procedure is able to identify those machines using the same analytical approach.
 
 
 ## Repositorio
 
-Este repositorio incluye:
-- El caso de ejemplo analizado para este proyecto (X)
-- Un caso adicional con 50 equipos y 20 sensores (X)
-- Un caso adicional de 20 equipos y 10 sensores, con integración a datos registrados en una fuente externa (.xls file)
+This repository includes:
+- The example case analyzed for this project (X).
+- An additional case with 50 machines and 20 sensors (X).
+- An additional case of 20 machines and 10 sensors, with integration to data recorded in an external source (.xls file).
