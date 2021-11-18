@@ -96,3 +96,11 @@ Al finalizar nuestro proceso, podemos ahora seleccionar aquellos equipos con des
 FIGURA
 
 Este proceso controlar y localizar equipos con defectos incrementa su potencial, evidentemente, con un aumento en el número de muestras y sensores sobre el conjunto de equipos del sistema. Más aún, un aumento en la complejidad del sistema (i.e. más equipos) no afecta el procedimiento y sus resultados. En un horizonte de planificación de varios periodos de tiempo, podemos ver cambios radicales en qué equipos y en qué número presentan anomalías, pero este sencillo procedimiento es capaz de identificar esos equipos utilizando el mismo enfoque analítico.
+
+
+## Repositorio
+
+Este repositorio incluye:
+- El caso de ejemplo analizado para este proyecto (X)
+- Un caso adicional con 50 equipos y 20 sensores (X)
+- Un caso adicional de 20 equipos y 10 sensores, con integración a datos registrados en una fuente externa (.xls file)
