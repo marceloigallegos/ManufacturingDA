@@ -102,7 +102,7 @@ At the end of our process, we can now select those machines with significant dev
 This process to control and locate machines with defects increases its potential, obviously, with an increase in the number of samples and sensors on the set of equipment in the system. Furthermore, an increase in the complexity of the system (i.e. more machines) does not affect the procedure and its results. In a planning horizon of several time periods, we can see radical changes in which machines and in which number have anomalies, but this simple procedure is able to identify those machines using the same analytical approach.
 
 
-## Repositorio
+## Repository
 
 This repository includes:
 - The example case analyzed for this project (ManufacturingDA_example.ipynb).
