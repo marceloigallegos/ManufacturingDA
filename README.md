@@ -107,4 +107,4 @@ This process to control and locate machines with defects increases its potential
 This repository includes:
 - The example case analyzed for this project (ManufacturingDA_example.ipynb).
 - An additional case with 50 machines and 20 sensors (ManufacturingDA_50equipos-20sensores.ipynb).
-- An additional case (still in review) of 20 machines and 10 sensors, with integration to data recorded in an external source (ManufacturingDA_xlsx.ipynb and Data.xlsx)
+- An additional case (**still in review**) of 20 machines and 10 sensors, with integration to data recorded in an external source (ManufacturingDA_xlsx.ipynb and Data.xlsx)
